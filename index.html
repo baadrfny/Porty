@@ -419,6 +419,60 @@
   .back-actions .gh-link { width:auto; height:36px; padding:0 15px; border-radius:20px; gap:8px; font-family:'Poppins',sans-serif; font-size:12px; font-weight:600; }
   .back-actions .gh-link i { font-size:13px; }
 
+  .view-project-btn{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    height:40px;
+    padding:0 18px;
+
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:#f5a623;
+
+    border:1px solid #f5a623;
+    border-radius:999px;
+    overflow:hidden;
+    isolation:isolate;
+
+    transition:
+        color .35s ease,
+        border-color .35s ease,
+        transform .3s ease;
+  }
+
+  .view-project-btn::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:#f5a623;
+
+    transform:translateX(-101%);
+    transition:transform .45s cubic-bezier(.77,0,.175,1);
+
+    z-index:-1;
+  }
+
+  .view-project-btn:hover{
+    color:#0d0d0d;
+    transform:translateY(-2px);
+  }
+
+  .view-project-btn:hover::before{
+    transform:translateX(0);
+  }
+
+  .view-project-btn i{
+    transition:transform .35s ease;
+  }
+
+  .view-project-btn:hover i{
+    transform:translateX(4px);
+  }
+
   @media (max-width:940px){ .project-grid { grid-template-columns:1fr; padding:0 24px; } }
   @media (max-width:520px){ .project-card { height:560px; } }
 
@@ -495,12 +549,19 @@
   .gh-card h4 { font-family:'Anton', sans-serif; font-weight:400; font-size:19px; text-transform:uppercase; margin-bottom:4px; }
   .gh-card p { color:#a8a8a8; font-size:13.5px; }
   .gh-card-cta {
-    display:inline-flex; align-items:center; gap:10px; background:transparent; color:#fff;
-    border:1px solid rgba(245,166,35,0.3); padding:12px 22px; border-radius:40px; font-size:13.5px; font-weight:600;
-    transition:border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
+    position:relative; display:inline-flex; align-items:center; gap:10px; color:#fff;
+    border:1px solid rgba(245,166,35,0.5); padding:12px 22px; border-radius:40px; font-size:13.5px; font-weight:600;
+    overflow:hidden; isolation:isolate;
+    transition:color .35s ease, border-color .35s ease, transform .3s ease;
   }
-  .gh-card-cta:hover { border-color:#f5a623; background:rgba(245,166,35,0.08); transform:translateY(-2px); }
-  .gh-card-cta svg { width:15px; height:15px; stroke:#f5a623; }
+  .gh-card-cta::before {
+    content:""; position:absolute; inset:0; background:#f5a623;
+    transform:translateX(-101%); transition:transform .45s cubic-bezier(.77,0,.175,1); z-index:-1;
+  }
+  .gh-card-cta:hover { color:#0d0d0d; border-color:#f5a623; transform:translateY(-2px); }
+  .gh-card-cta:hover::before { transform:translateX(0); }
+  .gh-card-cta svg { width:15px; height:15px; stroke:#f5a623; transition:transform .35s ease; }
+  .gh-card-cta:hover svg { transform:translateX(4px); }
 
   @media (max-width:640px){ .gh-strip { padding:0 24px 20px 24px; } .gh-card { padding:24px; } }
 
@@ -780,7 +841,10 @@
           </ul>
           <div class="project-tags"><span>Spring Boot</span><span>React</span><span>SQL</span></div>
           <div class="back-actions">
-            <a class="gh-link" href="https://github.com/baadrfny" target="_blank" rel="noopener" onclick="event.stopPropagation();"><i class="fab fa-github"></i> Code</a>
+            <a href="https://github.com/baadrfny" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
+              <span>View GitHub</span>
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -818,7 +882,10 @@
           </ul>
           <div class="project-tags"><span>React</span><span>Node.js</span><span>Tailwind</span></div>
           <div class="back-actions">
-            <a class="gh-link" href="https://github.com/baadrfny" target="_blank" rel="noopener" onclick="event.stopPropagation();"><i class="fab fa-github"></i> Code</a>
+            <a href="https://github.com/baadrfny" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
+              <span>View GitHub</span>
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -856,7 +923,10 @@
           </ul>
           <div class="project-tags"><span>Laravel</span><span>MySQL</span><span>Stripe</span></div>
           <div class="back-actions">
-            <a class="gh-link" href="https://github.com/baadrfny" target="_blank" rel="noopener" onclick="event.stopPropagation();"><i class="fab fa-github"></i> Code</a>
+            <a href="https://github.com/baadrfny" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
+              <span>View GitHub</span>
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -894,7 +964,10 @@
           </ul>
           <div class="project-tags"><span>Laravel</span><span>SQL</span><span>JavaScript</span></div>
           <div class="back-actions">
-            <a class="gh-link" href="https://github.com/baadrfny" target="_blank" rel="noopener" onclick="event.stopPropagation();"><i class="fab fa-github"></i> Code</a>
+            <a href="https://github.com/baadrfny" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
+              <span>View GitHub</span>
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
         </div>
       </div>
