@@ -329,7 +329,7 @@
   /* ============ STAT STRIP ============ */
   .stat-strip {
     position:relative; z-index:3; max-width:1180px; margin:48px auto 0 auto; padding:0 48px;
-    display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;
+    display:grid; grid-template-columns:repeat(5, 1fr); gap:16px;
   }
   .stat-card {
     background:#141416; border:1px solid rgba(255,255,255,0.07); border-radius:14px;
@@ -936,19 +936,23 @@
 
   <div class="stat-strip reveal">
     <div class="stat-card">
-      <div class="stat-num">4+</div>
+      <div class="stat-num" data-count="40" data-suffix="+">0+</div>
       <div class="stat-label">Shipped Projects</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">15+</div>
+      <div class="stat-num" data-count="4" data-suffix="+">0+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" data-count="15" data-suffix="+">0+</div>
       <div class="stat-label">DB Tables Designed</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">50+</div>
+      <div class="stat-num" data-count="50" data-suffix="+">0+</div>
       <div class="stat-label">React Components</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">3</div>
+      <div class="stat-num" data-count="3">0</div>
       <div class="stat-label">Full-Stack Ecosystems</div>
     </div>
   </div>
@@ -1420,6 +1424,37 @@
       });
     }, { threshold: 0.15 });
     revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  var statNums = document.querySelectorAll('.stat-num[data-count]');
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1400;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    statNums.forEach(function(el){
+      el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || '');
+    });
+  } else {
+    var statIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          statIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(function(el){ statIO.observe(el); });
   }
 </script>
 
