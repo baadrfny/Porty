@@ -140,6 +140,57 @@
 
   @media (max-width:760px){ .sticker { font-size:15px !important; padding:8px 14px 10px 14px; } }
 
+  /* ============ AVIS / TESTIMONIALS (sticker board) ============ */
+  .avis { background:radial-gradient(circle at 78% 18%, rgba(245,166,35,0.05), transparent 45%); padding-bottom:100px; }
+
+  .avis-board {
+    position:relative; z-index:3; max-width:1180px; margin:64px auto 0 auto; padding:0 48px;
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:34px 26px;
+  }
+
+  /* same paper + washi-tape look as .sticker, but sits in normal flow, keeps
+     pointer events, and carries a full testimonial instead of a short label */
+  .avis-sticker {
+    position:relative; width:260px; background:#f4e9cf; color:#2b2416;
+    padding:22px 20px 22px 20px; border-radius:3px;
+    box-shadow:0 14px 28px rgba(0,0,0,0.45), 0 2px 0 rgba(0,0,0,0.05) inset;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    animation:stickerFloat 6.5s ease-in-out infinite;
+  }
+  .avis-sticker::before {
+    content:""; position:absolute; top:-9px; left:50%; transform:translateX(-50%) rotate(-2deg);
+    width:50px; height:18px; background:rgba(245,166,35,0.55); border:1px solid rgba(245,166,35,0.7);
+  }
+  .avis-sticker:hover {
+    transform:translateY(-10px) rotate(0deg) !important;
+    box-shadow:0 22px 42px rgba(0,0,0,0.5);
+    animation-play-state:paused;
+    z-index:5;
+  }
+
+  .avis-sticker.tilt-1 { --r:-4deg; }
+  .avis-sticker.tilt-2 { --r:3deg; margin-top:28px; }
+  .avis-sticker.tilt-3 { --r:-2deg; }
+  .avis-sticker.tilt-4 { --r:5deg; margin-top:14px; }
+  .avis-sticker.tilt-5 { --r:-5deg; margin-top:36px; }
+  .avis-sticker.tilt-6 { --r:2deg; }
+
+  .avis-stars { color:#c9871f; font-size:13px; letter-spacing:2px; margin-bottom:10px; }
+  .avis-quote {
+    font-family:'Caveat', cursive; font-weight:600; font-size:19px; line-height:1.32;
+    margin-bottom:16px; color:#2b2416;
+  }
+  .avis-author { font-family:'JetBrains Mono', monospace; font-size:11px; color:#8a7a54; text-transform:uppercase; letter-spacing:0.3px; }
+  .avis-author strong {
+    display:block; font-family:'Poppins', sans-serif; font-size:13px; font-weight:600;
+    text-transform:none; letter-spacing:0; color:#2b2416; margin-bottom:2px;
+  }
+
+  @media (max-width:700px){
+    .avis-board { padding:0 24px; gap:30px 18px; }
+    .avis-sticker { width:100%; max-width:300px; margin-top:0 !important; }
+  }
+
   /* ============ HERO ============ */
   .hero {
     position:relative; width:100%; min-height:100vh;
@@ -695,30 +746,6 @@
 
   @media (max-width:640px){ .gh-strip { padding:0 24px 20px 24px; } .gh-card { padding:24px; } }
 
-  /* ============ TESTIMONIALS ============ */
-  .testimonials { background: radial-gradient(circle at 20% 0%, rgba(245,166,35,0.05), transparent 45%); }
-  .testi-wrap { position:relative; z-index:3; max-width:1180px; margin:0 auto; padding:0 48px 90px 48px; display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px; align-items:stretch; }
-  .testi-card {
-    background:#141416; border:1px solid rgba(255,255,255,0.07); border-radius:18px; padding:40px 42px;
-    position:relative; transition:border-color 0.3s ease, transform 0.3s ease; display:flex; flex-direction:column;
-  }
-  .testi-card:hover { border-color:rgba(245,166,35,0.3); transform:translateY(-3px); }
-  .testi-quote-mark { font-size:34px; color:#f5a623; opacity:0.9; margin-bottom:18px; }
-  .testi-text { color:#d9d9d9; font-size:16.5px; line-height:1.75; }
-  .testi-person { display:flex; align-items:center; gap:16px; margin-top:26px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.07); flex-wrap:wrap; }
-  .testi-avatar {
-    width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,#f5a623,#b06e00);
-    display:flex; align-items:center; justify-content:center; font-family:'Anton',sans-serif; font-size:20px; color:#0d0d0d; flex-shrink:0;
-  }
-  .testi-info { flex:1; min-width:200px; }
-  .testi-info h4 { font-family:'Poppins',sans-serif; font-size:16px; color:#fff; margin:0 0 4px 0; }
-  .testi-info span { font-size:12.5px; color:#8f8f8f; line-height:1.5; display:block; }
-  .testi-badge {
-    display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:600; color:#fff;
-    background:#0a66c2; padding:6px 12px; border-radius:999px; margin-left:auto;
-  }
-  @media (max-width:640px){ .testi-wrap { padding:0 24px 70px 24px; } .testi-card { padding:28px 24px; } }
-
   /* ============ CONTACT / FOOTER ============ */
   .contact { background: radial-gradient(circle at 50% 0%, rgba(245,166,35,0.06), transparent 50%); }
   .contact-inner { position:relative; z-index:3; max-width:820px; margin:0 auto; padding:110px 48px 80px 48px; text-align:center; }
@@ -809,6 +836,7 @@
     <a href="#skills"><span class="link-text">Stack</span></a>
     <a href="#experience"><span class="link-text">Resume</span></a>
     <a href="#projects"><span class="link-text">Work</span></a>
+    <a href="#avis"><span class="link-text">Avis</span></a>
     <a href="#contact"><span class="link-text">Contact</span></a>
     <a class="nav-gh" href="https://github.com/baadrfny" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
     <a class="nav-resume" href="pdf/Badr_Fenni_CV.pdf" target="_blank" rel="noopener" aria-label="Download Resume"><i class="fa-solid fa-download"></i><span class="link-text"> Resume</span></a>
@@ -1273,41 +1301,40 @@
   </div>
 </section>
 
-<!-- ================= TESTIMONIALS ================= -->
-<section class="section-dark testimonials" id="testimonials">
+<!-- ================= AVIS / TESTIMONIALS ================= -->
+<section class="section-dark avis" id="avis">
   <div class="section-head reveal">
     <span class="eyebrow">kind words</span>
-    <h2>Recommendations
-      <svg class="u-squiggle" viewBox="0 0 240 16" preserveAspectRatio="none">
-        <path d="M2 10 Q20 2 38 10 T74 10 T110 10 T146 10 T182 10 T238 10" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <h2>Avis
+      <svg class="u-squiggle" viewBox="0 0 160 16" preserveAspectRatio="none">
+        <path d="M2 10 Q20 2 38 10 T74 10 T110 10 T146 10" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
     </h2>
   </div>
 
-  <div class="testi-wrap reveal">
-    <div class="testi-card">
-      <div class="testi-quote-mark"><i class="fa-solid fa-quote-right"></i></div>
-      <p class="testi-text">"I highly recommend Badr to my network. His strong technical skills and fast learning abilities make him a valuable asset to any startup looking to deliver high-value projects to its clients."</p>
-      <div class="testi-person">
-        <div class="testi-avatar">AH</div>
-        <div class="testi-info">
-          <h4>Anas Hammaoui</h4>
-          <span>Software Engineer · Laravel, Spring Boot, React, Next.js & Angular · SaaS Specialist · Docker & CI/CD</span>
-        </div>
-        <div class="testi-badge"><i class="fab fa-linkedin-in"></i> 1st</div>
-      </div>
+  <div class="avis-board reveal">
+    <div class="avis-sticker tilt-1">
+      <div class="avis-stars">★★★★★</div>
+      <p class="avis-quote">"Badr picked up ambiguous requirements fast and shipped a clean, reliable backend without hand-holding."</p>
+      <div class="avis-author"><strong>Senior Engineer</strong>Glorvia Media Agency</div>
     </div>
-    <div class="testi-card">
-      <div class="testi-quote-mark"><i class="fa-solid fa-quote-right"></i></div>
-      <p class="testi-text">"Badr le meilleur 🥇"</p>
-      <div class="testi-person">
-        <div class="testi-avatar">KL</div>
-        <div class="testi-info">
-          <h4>Kacimi Lahcen</h4>
-          <span>Full-stack Developer</span>
-        </div>
-        <div class="testi-badge"><i class="fab fa-linkedin-in"></i> 1st</div>
-      </div>
+
+    <div class="avis-sticker tilt-2">
+      <div class="avis-stars">★★★★★</div>
+      <p class="avis-quote">"Great communicator, reliable with deadlines, and the UI polish on the client portal really stood out."</p>
+      <div class="avis-author"><strong>Project Lead</strong>Glorvia Media Agency</div>
+    </div>
+
+    <div class="avis-sticker tilt-3">
+      <div class="avis-stars">★★★★★</div>
+      <p class="avis-quote">"One of the strongest full-stack builders in the cohort — architecture-minded and ships fast."</p>
+      <div class="avis-author"><strong>Trainer</strong>YouCode</div>
+    </div>
+
+    <div class="avis-sticker tilt-4">
+      <div class="avis-stars">★★★★★</div>
+      <p class="avis-quote">"Consistently the one to untangle the messy database problems on the team."</p>
+      <div class="avis-author"><strong>Peer Developer</strong>YouCode Labs</div>
     </div>
   </div>
 </section>
