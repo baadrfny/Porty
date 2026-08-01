@@ -695,6 +695,30 @@
 
   @media (max-width:640px){ .gh-strip { padding:0 24px 20px 24px; } .gh-card { padding:24px; } }
 
+  /* ============ TESTIMONIALS ============ */
+  .testimonials { background: radial-gradient(circle at 20% 0%, rgba(245,166,35,0.05), transparent 45%); }
+  .testi-wrap { position:relative; z-index:3; max-width:820px; margin:0 auto; padding:0 48px 90px 48px; }
+  .testi-card {
+    background:#141416; border:1px solid rgba(255,255,255,0.07); border-radius:18px; padding:40px 42px;
+    position:relative; transition:border-color 0.3s ease, transform 0.3s ease;
+  }
+  .testi-card:hover { border-color:rgba(245,166,35,0.3); transform:translateY(-3px); }
+  .testi-quote-mark { font-size:34px; color:#f5a623; opacity:0.9; margin-bottom:18px; }
+  .testi-text { color:#d9d9d9; font-size:16.5px; line-height:1.75; }
+  .testi-person { display:flex; align-items:center; gap:16px; margin-top:26px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.07); flex-wrap:wrap; }
+  .testi-avatar {
+    width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,#f5a623,#b06e00);
+    display:flex; align-items:center; justify-content:center; font-family:'Anton',sans-serif; font-size:20px; color:#0d0d0d; flex-shrink:0;
+  }
+  .testi-info { flex:1; min-width:200px; }
+  .testi-info h4 { font-family:'Poppins',sans-serif; font-size:16px; color:#fff; margin:0 0 4px 0; }
+  .testi-info span { font-size:12.5px; color:#8f8f8f; line-height:1.5; display:block; }
+  .testi-badge {
+    display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:600; color:#fff;
+    background:#0a66c2; padding:6px 12px; border-radius:999px; margin-left:auto;
+  }
+  @media (max-width:640px){ .testi-wrap { padding:0 24px 70px 24px; } .testi-card { padding:28px 24px; } }
+
   /* ============ CONTACT / FOOTER ============ */
   .contact { background: radial-gradient(circle at 50% 0%, rgba(245,166,35,0.06), transparent 50%); }
   .contact-inner { position:relative; z-index:3; max-width:820px; margin:0 auto; padding:110px 48px 80px 48px; text-align:center; }
@@ -1245,6 +1269,33 @@
         View GitHub
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section-dark testimonials" id="testimonials">
+  <div class="section-head reveal">
+    <span class="eyebrow">kind words</span>
+    <h2>Recommendations
+      <svg class="u-squiggle" viewBox="0 0 240 16" preserveAspectRatio="none">
+        <path d="M2 10 Q20 2 38 10 T74 10 T110 10 T146 10 T182 10 T238 10" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </h2>
+  </div>
+
+  <div class="testi-wrap reveal">
+    <div class="testi-card">
+      <div class="testi-quote-mark"><i class="fa-solid fa-quote-right"></i></div>
+      <p class="testi-text">"I highly recommend Badr to my network. His strong technical skills and fast learning abilities make him a valuable asset to any startup looking to deliver high-value projects to its clients."</p>
+      <div class="testi-person">
+        <div class="testi-avatar">AH</div>
+        <div class="testi-info">
+          <h4>Anas Hammaoui</h4>
+          <span>Software Engineer · Laravel, Spring Boot, React, Next.js & Angular · SaaS Specialist · Docker & CI/CD</span>
+        </div>
+        <div class="testi-badge"><i class="fab fa-linkedin-in"></i> 1st</div>
+      </div>
     </div>
   </div>
 </section>
