@@ -805,6 +805,30 @@
   @media (hover:hover) and (pointer:fine) {
     body, a, button { cursor:none; }
   }
+
+  /* ============ FLOATING WHATSAPP BUTTON ============ */
+  .whatsapp-float {
+    position:fixed; bottom:24px; right:24px; z-index:90;
+    width:58px; height:58px; border-radius:50%;
+    background:#25d366; color:#fff; font-size:30px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 28px rgba(37,211,102,0.45);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .whatsapp-float:hover {
+    transform:translateY(-4px) scale(1.06);
+    box-shadow:0 16px 34px rgba(37,211,102,0.55);
+  }
+  .whatsapp-float::after {
+    content:""; position:absolute; inset:-6px; border-radius:50%;
+    border:2px solid rgba(37,211,102,0.45);
+    animation:whatsappPulse 2s ease-out infinite;
+  }
+  @keyframes whatsappPulse {
+    0% { transform:scale(0.85); opacity:1; }
+    100% { transform:scale(1.25); opacity:0; }
+  }
+  @media (max-width:640px){ .whatsapp-float { width:52px; height:52px; font-size:27px; bottom:18px; right:18px; } }
 </style>
 </head>
 <body>
@@ -823,6 +847,8 @@
 
 <div class="img-backdrop" id="imgBackdrop"></div>
 <div class="img-lightbox" id="imgLightbox"><img id="imgLightboxImg" src="" alt=""></div>
+
+<a class="whatsapp-float" href="https://wa.me/212764480125" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <nav class="site-nav" id="siteNav">
   <a href="#top" class="nav-logo">
@@ -1277,6 +1303,10 @@
               <span>View GitHub</span>
               <i class="fa-brands fa-github"></i>
             </a>
+            <a href="http://hamburg-car.com/" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
+              <span>Visit Website</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -1360,6 +1390,7 @@
     <div class="social-row">
       <a href="https://github.com/baadrfny" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/badr-fenni-2852b7389" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://wa.me/212764480125" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
   </div>
 
