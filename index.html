@@ -116,6 +116,19 @@
     transition:transform 0.25s ease, box-shadow 0.25s ease;
   }
   .nav-resume:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,0.3); }
+  .nav-lang {
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    height:36px; padding:0 14px; margin-left:8px;
+    background:#1a1a1a; border:1px solid rgba(255,255,255,0.12); border-radius:999px;
+    color:#8f8f8f; font-family:'Poppins',sans-serif; font-size:11.5px; font-weight:600; letter-spacing:1px;
+    cursor:pointer; transition:border-color 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .nav-lang .lang-sep { color:#3a3a3a; }
+  .nav-lang .lang-fr { color:#8f8f8f; }
+  .nav-lang.is-fr .lang-en { color:#8f8f8f; }
+  .nav-lang.is-fr .lang-fr { color:#f5a623; }
+  .nav-lang:not(.is-fr) .lang-en { color:#f5a623; }
+  .nav-lang:hover { border-color:rgba(245,166,35,0.5); transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,0.3); }
 
   @media (max-width:800px){
     .site-nav { padding:18px 24px; }
@@ -858,14 +871,17 @@
     </svg>
   </a>
   <div class="nav-links">
-    <a href="#about"><span class="link-text">About</span></a>
-    <a href="#skills"><span class="link-text">Stack</span></a>
-    <a href="#experience"><span class="link-text">Resume</span></a>
-    <a href="#projects"><span class="link-text">Work</span></a>
-    <a href="#avis"><span class="link-text">Avis</span></a>
-    <a href="#contact"><span class="link-text">Contact</span></a>
+    <a href="#about"><span class="link-text" data-i18n="nav.about">About</span></a>
+    <a href="#skills"><span class="link-text" data-i18n="nav.stack">Stack</span></a>
+    <a href="#experience"><span class="link-text" data-i18n="nav.resume">Resume</span></a>
+    <a href="#projects"><span class="link-text" data-i18n="nav.work">Work</span></a>
+    <a href="#avis"><span class="link-text" data-i18n="nav.avis">Avis</span></a>
+    <a href="#contact"><span class="link-text" data-i18n="nav.contact">Contact</span></a>
     <a class="nav-gh" href="https://github.com/baadrfny" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a class="nav-resume" href="pdf/Badr_Fenni_CV.pdf" target="_blank" rel="noopener" aria-label="Download Resume"><i class="fa-solid fa-download"></i><span class="link-text"> Resume</span></a>
+    <a class="nav-resume" href="pdf/Badr_Fenni_CV.pdf" target="_blank" rel="noopener" aria-label="Download Resume"><i class="fa-solid fa-download"></i><span class="link-text" data-i18n="nav.resumeBtn"> Resume</span></a>
+    <button class="nav-lang" id="langToggle" aria-label="Toggle language EN / FR">
+      <span class="lang-en">EN</span><span class="lang-sep">/</span><span class="lang-fr">FR</span>
+    </button>
   </div>
 </nav>
 
@@ -878,11 +894,11 @@
         <path d="M2 16 Q10 3 18 16 T34 16 T50 16" stroke="#f5a623" stroke-width="3.5" fill="none" stroke-linecap="round"/>
       </svg>
     </div>
-    <div class="subtitle">Full-Stack Software Engineer</div>
+    <div class="subtitle" data-i18n="hero.subtitle">Full-Stack Software Engineer</div>
   </div>
 
-  <div class="sticker tilt-l" style="top:16%; left:8%; font-size:18px;">open to<br>work ✦</div>
-  <div class="sticker tilt-r" style="bottom:20%; right:10%; font-size:17px;">ships fast,<br>breaks nothing</div>
+  <div class="sticker tilt-l" style="top:16%; left:8%; font-size:18px;" data-i18n-html="hero.sticker1">open to<br>work ✦</div>
+  <div class="sticker tilt-r" style="bottom:20%; right:10%; font-size:17px;" data-i18n-html="hero.sticker2">ships fast,<br>breaks nothing</div>
 
   <div class="icon react"><i class="fab fa-react"></i><span class="tip">React</span></div>
   <div class="icon java"><i class="fab fa-java"></i><span class="tip">Java</span></div>
@@ -904,33 +920,33 @@
     <path d="M6 12l4 4L18 8" stroke="#f5a623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 
-  <div class="scroll-cue"><span>Scroll</span><span class="stick"></span></div>
+  <div class="scroll-cue"><span data-i18n="hero.scroll">Scroll</span><span class="stick"></span></div>
 </section>
 
 <!-- ================= ABOUT ================= -->
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-copy reveal">
-      <span class="eyebrow">nice to meet you</span>
-      <h2>Hello I'm</h2>
+      <span class="eyebrow" data-i18n="about.eyebrow">nice to meet you</span>
+      <h2 data-i18n="about.title">Hello I'm</h2>
       <span class="who">Badr</span>
 
-      <p>I'm a <strong>self-taught full-stack developer</strong> who started coding independently from home before formalizing my skills through YouCode's intensive, project-based training. I build across the <strong>Java Spring Boot</strong>, <strong>PHP/Laravel</strong>, and <strong>JavaScript/React</strong> ecosystems — architecting and deploying full-stack systems from RBAC and secure payment processing to real-time data tracking.</p>
+      <p data-i18n-html="about.p1">I'm a <strong>self-taught full-stack developer</strong> who started coding independently from home before formalizing my skills through YouCode's intensive, project-based training. I build across the <strong>Java Spring Boot</strong>, <strong>PHP/Laravel</strong>, and <strong>JavaScript/React</strong> ecosystems — architecting and deploying full-stack systems from RBAC and secure payment processing to real-time data tracking.</p>
 
       <div class="domain-row">
-        <span>Healthcare</span>
-        <span>E-Commerce</span>
-        <span>Digital Agency</span>
+        <span data-i18n="about.domain1">Healthcare</span>
+        <span data-i18n="about.domain2">E-Commerce</span>
+        <span data-i18n="about.domain3">Digital Agency</span>
       </div>
 
       <div class="lang-row">
-        <span><i class="fa-solid fa-globe"></i> Arabic <em>Native</em></span>
-        <span><i class="fa-solid fa-globe"></i> English <em>Professional Working</em></span>
+        <span data-i18n-html="about.lang1"><i class="fa-solid fa-globe"></i> Arabic <em>Native</em></span>
+        <span data-i18n-html="about.lang2"><i class="fa-solid fa-globe"></i> English <em>Professional Working</em></span>
       </div>
 
       <div class="mini-badge">
         <div class="mini-badge-icon"><i class="fa-solid fa-code"></i></div>
-        <span class="mini-badge-text">Full-Stack Developer</span>
+        <span class="mini-badge-text" data-i18n="about.badge">Full-Stack Developer</span>
       </div>
     </div>
 
@@ -943,7 +959,7 @@
         <img src="img/sec2.png" alt="Portrait">
       </div>
 
-      <div class="sticker tilt-r" style="top:-6%; right:2%; font-size:16px;">YouCode<br>grad '25</div>
+      <div class="sticker tilt-r" style="top:-6%; right:2%; font-size:16px;" data-i18n-html="about.sticker">YouCode<br>grad '25</div>
 
       <svg class="about-squiggle" style="bottom:-6px; left:-10px;" width="70" height="26" viewBox="0 0 70 26">
         <path d="M2 18 Q12 4 22 18 T42 18 T62 18" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
@@ -955,8 +971,8 @@
 <!-- ================= SKILLS ================= -->
 <section class="section-dark skills" id="skills">
   <div class="section-head reveal">
-    <span class="eyebrow">what I work with</span>
-    <h2>My Stack
+    <span class="eyebrow" data-i18n="skills.eyebrow">what I work with</span>
+    <h2 data-i18n="skills.title">My Stack
       <svg class="u-squiggle" viewBox="0 0 200 16" preserveAspectRatio="none">
         <path d="M2 10 Q20 2 38 10 T74 10 T110 10 T146 10 T182 10" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
@@ -1015,15 +1031,15 @@
   <div class="stat-strip reveal">
     <div class="stat-card">
       <div class="stat-num" data-count="40" data-suffix="+">0+</div>
-      <div class="stat-label">Shipped Projects</div>
+      <div class="stat-label" data-i18n="skills.stat1">Shipped Projects</div>
     </div>
     <div class="stat-card">
       <div class="stat-num" data-count="4" data-suffix="+">0+</div>
-      <div class="stat-label">Years Experience</div>
+      <div class="stat-label" data-i18n="skills.stat2">Years Experience</div>
     </div>
     <div class="stat-card">
       <div class="stat-num" data-count="3">0</div>
-      <div class="stat-label">Full-Stack Ecosystems</div>
+      <div class="stat-label" data-i18n="skills.stat3">Full-Stack Ecosystems</div>
     </div>
   </div>
 </section>
@@ -1031,8 +1047,8 @@
 <!-- ================= EXPERIENCE ================= -->
 <section class="section-dark experience" id="experience">
   <div class="section-head reveal">
-    <span class="eyebrow">where I've worked</span>
-    <h2>Experience
+    <span class="eyebrow" data-i18n="exp.eyebrow">where I've worked</span>
+    <h2 data-i18n="exp.title">Experience
       <svg class="u-squiggle" viewBox="0 0 240 16" preserveAspectRatio="none">
         <path d="M2 10 Q20 2 38 10 T74 10 T110 10 T146 10 T182 10 T238 10" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
@@ -1047,15 +1063,15 @@
       </div>
       <div class="exp-body">
         <div class="exp-meta">
-          <span class="exp-role">Full-Stack Developer</span>
+          <span class="exp-role" data-i18n="exp.j1.role">Full-Stack Developer</span>
           <span class="exp-company">YouCode Labs</span>
           <span class="exp-date">Oct 2025 – Present</span>
         </div>
         <ul class="exp-list">
-          <li>Worked within small, agile, cross-functional teams to design, architect, and deploy production-grade software under real project constraints and short delivery cycles.</li>
-          <li>Translated ambiguous requirements into clean, maintainable full-stack architectures spanning relational databases, REST APIs, and modern component-based front ends, with an emphasis on data integrity and system reliability.</li>
-          <li>Applied UI/UX best practices and modern design systems (Tailwind CSS) to deliver visually polished, user-centric interfaces across every project.</li>
-          <li>Practiced version control and collaborative development workflows using Git, GitHub, and GitLab throughout the software development lifecycle.</li>
+          <li data-i18n="exp.j1.l1">Worked within small, agile, cross-functional teams to design, architect, and deploy production-grade software under real project constraints and short delivery cycles.</li>
+          <li data-i18n="exp.j1.l2">Translated ambiguous requirements into clean, maintainable full-stack architectures spanning relational databases, REST APIs, and modern component-based front ends, with an emphasis on data integrity and system reliability.</li>
+          <li data-i18n="exp.j1.l3">Applied UI/UX best practices and modern design systems (Tailwind CSS) to deliver visually polished, user-centric interfaces across every project.</li>
+          <li data-i18n="exp.j1.l4">Practiced version control and collaborative development workflows using Git, GitHub, and GitLab throughout the software development lifecycle.</li>
         </ul>
       </div>
     </div>
@@ -1085,8 +1101,8 @@
 <!-- ================= EDUCATION ================= -->
 <section class="section-dark education" id="education">
   <div class="section-head reveal">
-    <span class="eyebrow">learning & credentials</span>
-    <h2>Education
+    <span class="eyebrow" data-i18n="edu.eyebrow">learning & credentials</span>
+    <h2 data-i18n="edu.title">Education
       <svg class="u-squiggle" viewBox="0 0 220 16" preserveAspectRatio="none">
         <path d="M2 10 Q20 2 38 10 T74 10 T110 10 T146 10 T182 10 T218 10" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
@@ -1101,11 +1117,11 @@
       </div>
       <div class="edu-body">
         <div class="edu-meta">
-          <span class="edu-role">Advanced Full-Stack Web Development Training</span>
+          <span class="edu-role" data-i18n="edu.c1.role">Advanced Full-Stack Web Development Training</span>
           <span class="edu-school">YouCode</span>
           <span class="edu-date">Oct 2025 – Present</span>
         </div>
-        <p>Intensive project-based training covering Java Spring Boot, PHP/Laravel, React, relational databases, and collaborative development workflows — the same curriculum that produced the four shipped projects in this portfolio.</p>
+        <p data-i18n="edu.c1.p">Intensive project-based training covering Java Spring Boot, PHP/Laravel, React, relational databases, and collaborative development workflows — the same curriculum that produced the four shipped projects in this portfolio.</p>
         <div class="edu-tags"><span>JavaScript</span><span>HTML</span><span>Tailwind CSS</span><span>SQL</span></div>
       </div>
     </div>
@@ -1117,11 +1133,11 @@
       </div>
       <div class="edu-body">
         <div class="edu-meta">
-          <span class="edu-role">Baccalaureate Qualification</span>
+          <span class="edu-role" data-i18n="edu.c2.role">Baccalaureate Qualification</span>
           <span class="edu-school">Morocco</span>
           <span class="edu-date">Completed 2024</span>
         </div>
-        <p>Completed secondary education before moving directly into self-taught programming and, later, YouCode's intensive training track.</p>
+        <p data-i18n="edu.c2.p">Completed secondary education before moving directly into self-taught programming and, later, YouCode's intensive training track.</p>
       </div>
     </div>
   </div>
@@ -1130,8 +1146,8 @@
 <!-- ================= PROJECTS ================= -->
 <section class="section-dark projects" id="projects">
   <div class="section-head reveal">
-    <span class="eyebrow">a few builds</span>
-    <h2>Selected Work
+    <span class="eyebrow" data-i18n="proj.eyebrow">a few builds</span>
+    <h2 data-i18n="proj.title">Selected Work
       <svg class="u-squiggle" viewBox="0 0 220 16" preserveAspectRatio="none">
         <path d="M2 10 Q20 2 38 10 T74 10 T110 10 T146 10 T182 10 T218 10" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
@@ -1150,31 +1166,31 @@
           <div class="project-top">
             <div class="stack-icon"><i class="fab fa-js"></i></div>
           </div>
-          <span class="project-tag">medical data management</span>
+          <span class="project-tag" data-i18n="proj.p1.tag">medical data management</span>
           <h3>MediCare</h3>
-          <p>Designed the relational schema and REST API layer for patient record management and appointment scheduling, plus an admin dashboard with real-time visibility into clinical workflows.</p>
+          <p data-i18n="proj.p1.desc">Designed the relational schema and REST API layer for patient record management and appointment scheduling, plus an admin dashboard with real-time visibility into clinical workflows.</p>
           <div class="project-tags"><span>JavaScript</span><span>HTML</span><span>Tailwind CSS</span><span>MySQL</span></div>
         </div>
         <div class="card-face card-back">
           <div class="stack-icon"><i class="fab fa-js"></i></div>
-          <span class="project-tag">medical data management</span>
+          <span class="project-tag" data-i18n="proj.p1.tag">medical data management</span>
           <h3>MediCare</h3>
           <div class="back-meta">
-            <div>Role<strong>Full-stack</strong></div>
-            <div>Type<strong>Solo project</strong></div>
-            <div>Tables<strong>15+</strong></div>
-            <div>Duration<strong>6 weeks</strong></div>
+            <div><span data-i18n="proj.role">Role</span><strong data-i18n="proj.valFullstack">Full-stack</strong></div>
+            <div><span data-i18n="proj.type">Type</span><strong data-i18n="proj.valSolo">Solo project</strong></div>
+            <div><span data-i18n="proj.tables">Tables</span><strong data-i18n="proj.valTables15">15+</strong></div>
+            <div><span data-i18n="proj.duration">Duration</span><strong data-i18n="proj.valWeeks6">6 weeks</strong></div>
           </div>
           <ul class="feature-list">
-            <li>Relational schema for patients, staff, and appointments</li>
-            <li>Role-based access control for clinical vs. admin staff</li>
-            <li>REST API secured with JWT authentication</li>
-            <li>Admin dashboard with live workflow visibility</li>
+            <li data-i18n="proj.p1.f1">Relational schema for patients, staff, and appointments</li>
+            <li data-i18n="proj.p1.f2">Role-based access control for clinical vs. admin staff</li>
+            <li data-i18n="proj.p1.f3">REST API secured with JWT authentication</li>
+            <li data-i18n="proj.p1.f4">Admin dashboard with live workflow visibility</li>
           </ul>
           <div class="project-tags"><span>JavaScript</span><span>HTML</span><span>Tailwind CSS</span><span>MySQL</span></div>
           <div class="back-actions">
             <a href="https://github.com/baadrfny" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
-              <span>View GitHub</span>
+              <span data-i18n="proj.viewGithub">View GitHub</span>
               <i class="fa-brands fa-github"></i>
             </a>
           </div>
@@ -1192,31 +1208,31 @@
           <div class="project-top">
             <div class="stack-icon"><i class="fab fa-java"></i></div>
           </div>
-          <span class="project-tag">digital agency platform</span>
+          <span class="project-tag" data-i18n="proj.p2.tag">digital agency platform</span>
           <h3>Glorvia Media</h3>
-          <p>Co-developed a multi-module platform: public landing page, admin dashboard, secure client portal, and internal team workspace, with modular front-end components for a consistent brand identity.</p>
+          <p data-i18n="proj.p2.desc">Co-developed a multi-module platform: public landing page, admin dashboard, secure client portal, and internal team workspace, with modular front-end components for a consistent brand identity.</p>
           <div class="project-tags"><span>Java</span><span>Spring Boot</span><span>Angular</span><span>PostgreSQL</span></div>
         </div>
         <div class="card-face card-back">
           <div class="stack-icon"><i class="fab fa-java"></i></div>
-          <span class="project-tag">digital agency platform</span>
+          <span class="project-tag" data-i18n="proj.p2.tag">digital agency platform</span>
           <h3>Glorvia Media</h3>
           <div class="back-meta">
-            <div>Role<strong>Full-stack</strong></div>
-            <div>Type<strong>Team project</strong></div>
-            <div>Modules<strong>4 apps</strong></div>
-            <div>Components<strong>50+</strong></div>
+            <div><span data-i18n="proj.role">Role</span><strong data-i18n="proj.valFullstack">Full-stack</strong></div>
+            <div><span data-i18n="proj.type">Type</span><strong data-i18n="proj.valTeam">Team project</strong></div>
+            <div><span data-i18n="proj.modules">Modules</span><strong data-i18n="proj.valApps4">4 apps</strong></div>
+            <div><span data-i18n="proj.components">Components</span><strong data-i18n="proj.valComponents50">50+</strong></div>
           </div>
           <ul class="feature-list">
-            <li>Public landing page, admin dashboard, client portal, team workspace</li>
-            <li>Reusable component library for brand-consistent UI</li>
-            <li>Role-gated access for clients vs. internal staff</li>
-            <li>Responsive layouts across every module</li>
+            <li data-i18n="proj.p2.f1">Public landing page, admin dashboard, client portal, team workspace</li>
+            <li data-i18n="proj.p2.f2">Reusable component library for brand-consistent UI</li>
+            <li data-i18n="proj.p2.f3">Role-gated access for clients vs. internal staff</li>
+            <li data-i18n="proj.p2.f4">Responsive layouts across every module</li>
           </ul>
           <div class="project-tags"><span>Java</span><span>Spring Boot</span><span>Angular</span><span>PostgreSQL</span></div>
           <div class="back-actions">
             <a href="https://github.com/baadrfny" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
-              <span>View GitHub</span>
+              <span data-i18n="proj.viewGithub">View GitHub</span>
               <i class="fa-brands fa-github"></i>
             </a>
           </div>
@@ -1234,31 +1250,31 @@
           <div class="project-top">
             <div class="stack-icon"><i class="fab fa-php"></i></div>
           </div>
-          <span class="project-tag">multi-vendor marketplace</span>
+          <span class="project-tag" data-i18n="proj.p3.tag">multi-vendor marketplace</span>
           <h3>LocalMart</h3>
-          <p>Built RBAC, real-time inventory tracking across concurrent vendor updates, and integrated Stripe payments, with permission-based layers to safeguard vendor and customer data.</p>
+          <p data-i18n="proj.p3.desc">Built RBAC, real-time inventory tracking across concurrent vendor updates, and integrated Stripe payments, with permission-based layers to safeguard vendor and customer data.</p>
           <div class="project-tags"><span>Laravel</span><span>MySQL</span><span>Stripe</span><span>JavaScript</span></div>
         </div>
         <div class="card-face card-back">
           <div class="stack-icon"><i class="fab fa-php"></i></div>
-          <span class="project-tag">multi-vendor marketplace</span>
+          <span class="project-tag" data-i18n="proj.p3.tag">multi-vendor marketplace</span>
           <h3>LocalMart</h3>
           <div class="back-meta">
-            <div>Role<strong>Full-stack</strong></div>
-            <div>Type<strong>Solo project</strong></div>
-            <div>Vendors<strong>Multi-tenant</strong></div>
-            <div>Payments<strong>Stripe</strong></div>
+            <div><span data-i18n="proj.role">Role</span><strong data-i18n="proj.valFullstack">Full-stack</strong></div>
+            <div><span data-i18n="proj.type">Type</span><strong data-i18n="proj.valSolo">Solo project</strong></div>
+            <div><span data-i18n="proj.vendors">Vendors</span><strong data-i18n="proj.valMultitenant">Multi-tenant</strong></div>
+            <div><span data-i18n="proj.payments">Payments</span><strong data-i18n="proj.valStripe">Stripe</strong></div>
           </div>
           <ul class="feature-list">
-            <li>Role-based access control for vendors, staff, and customers</li>
-            <li>Real-time inventory sync across concurrent vendor updates</li>
-            <li>Stripe checkout with secure payment handling</li>
-            <li>Vendor onboarding and order management dashboard</li>
+            <li data-i18n="proj.p3.f1">Role-based access control for vendors, staff, and customers</li>
+            <li data-i18n="proj.p3.f2">Real-time inventory sync across concurrent vendor updates</li>
+            <li data-i18n="proj.p3.f3">Stripe checkout with secure payment handling</li>
+            <li data-i18n="proj.p3.f4">Vendor onboarding and order management dashboard</li>
           </ul>
           <div class="project-tags"><span>Laravel</span><span>MySQL</span><span>Stripe</span></div>
           <div class="back-actions">
             <a href="https://github.com/baadrfny" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
-              <span>View GitHub</span>
+              <span data-i18n="proj.viewGithub">View GitHub</span>
               <i class="fa-brands fa-github"></i>
             </a>
           </div>
@@ -1276,35 +1292,35 @@
           <div class="project-top">
             <div class="stack-icon"><i class="fab fa-laravel"></i></div>
           </div>
-          <span class="project-tag">vehicle rental platform</span>
+          <span class="project-tag" data-i18n="proj.p4.tag">vehicle rental platform</span>
           <h3>HamburgCar</h3>
-          <p>Designed a dynamic booking engine with automated rental contract generation, and optimized local SEO structures to improve discoverability and organic search visibility.</p>
+          <p data-i18n="proj.p4.desc">Designed a dynamic booking engine with automated rental contract generation, and optimized local SEO structures to improve discoverability and organic search visibility.</p>
           <div class="project-tags"><span>Next.js</span><span>Twig</span><span>Tailwind CSS</span><span>MySQL</span><span>Laravel</span></div>
         </div>
         <div class="card-face card-back">
           <div class="stack-icon"><i class="fab fa-laravel"></i></div>
-          <span class="project-tag">vehicle rental platform</span>
+          <span class="project-tag" data-i18n="proj.p4.tag">vehicle rental platform</span>
           <h3>HamburgCar</h3>
           <div class="back-meta">
-            <div>Role<strong>Full-stack</strong></div>
-            <div>Type<strong>Solo project</strong></div>
-            <div>SEO<strong>+35% organic</strong></div>
-            <div>Focus<strong>Bookings & SEO</strong></div>
+            <div><span data-i18n="proj.role">Role</span><strong data-i18n="proj.valFullstack">Full-stack</strong></div>
+            <div><span data-i18n="proj.type">Type</span><strong data-i18n="proj.valSolo">Solo project</strong></div>
+            <div><span data-i18n="proj.seo">SEO</span><strong data-i18n="proj.valOrganic35">+35% organic</strong></div>
+            <div><span data-i18n="proj.focus">Focus</span><strong data-i18n="proj.valBookseo">Bookings & SEO</strong></div>
           </div>
           <ul class="feature-list">
-            <li>Dynamic booking engine with live availability checks</li>
-            <li>Automated rental contract generation on checkout</li>
-            <li>Local SEO structuring for organic discoverability</li>
-            <li>Admin fleet and reservation management</li>
+            <li data-i18n="proj.p4.f1">Dynamic booking engine with live availability checks</li>
+            <li data-i18n="proj.p4.f2">Automated rental contract generation on checkout</li>
+            <li data-i18n="proj.p4.f3">Local SEO structuring for organic discoverability</li>
+            <li data-i18n="proj.p4.f4">Admin fleet and reservation management</li>
           </ul>
           <div class="project-tags"><span>Next.js</span><span>Twig</span><span>Tailwind CSS</span><span>MySQL</span><span>Laravel</span></div>
           <div class="back-actions">
             <a href="https://github.com/baadrfny" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
-              <span>View GitHub</span>
+              <span data-i18n="proj.viewGithub">View GitHub</span>
               <i class="fa-brands fa-github"></i>
             </a>
             <a href="http://hamburg-car.com/" target="_blank" class="view-project-btn" onclick="event.stopPropagation();">
-              <span>Visit Website</span>
+              <span data-i18n="proj.visitWebsite">Visit Website</span>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
@@ -1319,12 +1335,12 @@
       <div class="gh-card-left">
         <div class="gh-icon"><i class="fab fa-github"></i></div>
         <div>
-          <h4>More on GitHub</h4>
-          <p>Source code, commit history, and a few things still in progress.</p>
+          <h4 data-i18n="proj.gh.title">More on GitHub</h4>
+          <p data-i18n="proj.gh.text">Source code, commit history, and a few things still in progress.</p>
         </div>
       </div>
       <a class="gh-card-cta" href="https://github.com/baadrfny" target="_blank" rel="noopener">
-        View GitHub
+        <span data-i18n="proj.gh.cta">View GitHub</span>
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -1334,8 +1350,8 @@
 <!-- ================= AVIS / TESTIMONIALS ================= -->
 <section class="section-dark avis" id="avis">
   <div class="section-head reveal">
-    <span class="eyebrow">kind words</span>
-    <h2>Avis
+    <span class="eyebrow" data-i18n="avis.eyebrow">kind words</span>
+    <h2 data-i18n="avis.title">Avis
       <svg class="u-squiggle" viewBox="0 0 160 16" preserveAspectRatio="none">
         <path d="M2 10 Q20 2 38 10 T74 10 T110 10 T146 10" stroke="#f5a623" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
@@ -1372,18 +1388,18 @@
 <!-- ================= CONTACT / FOOTER ================= -->
 <section class="section-dark contact" id="contact">
   <div class="contact-inner reveal">
-    <span class="eyebrow">got a project in mind?</span>
-    <h2>Let's build <span class="who">something</span></h2>
-    <p>Open to freelance work and full-time roles. If you need a developer who can own a feature end to end, reach out.</p>
+    <span class="eyebrow" data-i18n="contact.eyebrow">got a project in mind?</span>
+    <h2 data-i18n-html="contact.title">Let's build <span class="who">something</span></h2>
+    <p data-i18n="contact.p">Open to freelance work and full-time roles. If you need a developer who can own a feature end to end, reach out.</p>
 
     <a class="contact-cta" href="mailto:badrfny.dev@gmail.com">
-      Get in touch
+      <span data-i18n="contact.cta">Get in touch</span>
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
 
     <div style="display:flex; justify-content:center; gap:12px; margin-top:22px; flex-wrap:wrap;">
       <a class="contact-cta" href="pdf/Badr_Fenni_CV.pdf" target="_blank" rel="noopener" style="background:transparent; border:1px solid rgba(245,166,35,0.5); color:#f5a623; font-size:14px; padding:14px 26px;">
-        <i class="fa-solid fa-download"></i> Download Resume
+        <i class="fa-solid fa-download"></i> <span data-i18n="contact.resumeBtn">Download Resume</span>
       </a>
     </div>
 
@@ -1395,7 +1411,7 @@
   </div>
 
   <div class="footer-bar">
-    <span>&copy; 2026 Badr Fenni. Built line by line.</span>
+    <span data-i18n="footer.text">&copy; 2026 Badr Fenni. Built line by line.</span>
     <div class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" role="button" aria-label="Back to top" tabindex="0">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </div>
@@ -1403,6 +1419,236 @@
 </section>
 
 <script>
+  /* ---- i18n EN / FR ---- */
+  var i18n = {
+    en: {
+      'nav.about': 'About',
+      'nav.stack': 'Stack',
+      'nav.resume': 'Resume',
+      'nav.work': 'Work',
+      'nav.avis': 'Avis',
+      'nav.contact': 'Contact',
+      'nav.resumeBtn': ' Resume',
+      'hero.subtitle': 'Full-Stack Software Engineer',
+      'hero.sticker1': 'open to<br>work ✦',
+      'hero.sticker2': 'ships fast,<br>breaks nothing',
+      'hero.scroll': 'Scroll',
+      'about.eyebrow': 'nice to meet you',
+      'about.title': 'Hello I\'m',
+      'about.p1': 'I\'m a <strong>self-taught full-stack developer</strong> who started coding independently from home before formalizing my skills through YouCode\'s intensive, project-based training. I build across the <strong>Java Spring Boot</strong>, <strong>PHP/Laravel</strong>, and <strong>JavaScript/React</strong> ecosystems — architecting and deploying full-stack systems from RBAC and secure payment processing to real-time data tracking.',
+      'about.domain1': 'Healthcare',
+      'about.domain2': 'E-Commerce',
+      'about.domain3': 'Digital Agency',
+      'about.lang1': '<i class="fa-solid fa-globe"></i> Arabic <em>Native</em>',
+      'about.lang2': '<i class="fa-solid fa-globe"></i> English <em>Professional Working</em>',
+      'about.badge': 'Full-Stack Developer',
+      'about.sticker': 'YouCode<br>grad \'25',
+      'skills.eyebrow': 'what I work with',
+      'skills.title': 'My Stack',
+      'skills.stat1': 'Shipped Projects',
+      'skills.stat2': 'Years Experience',
+      'skills.stat3': 'Full-Stack Ecosystems',
+      'exp.eyebrow': 'where I\'ve worked',
+      'exp.title': 'Experience',
+      'exp.j1.role': 'Full-Stack Developer',
+      'exp.j1.l1': 'Worked within small, agile, cross-functional teams to design, architect, and deploy production-grade software under real project constraints and short delivery cycles.',
+      'exp.j1.l2': 'Translated ambiguous requirements into clean, maintainable full-stack architectures spanning relational databases, REST APIs, and modern component-based front ends, with an emphasis on data integrity and system reliability.',
+      'exp.j1.l3': 'Applied UI/UX best practices and modern design systems (Tailwind CSS) to deliver visually polished, user-centric interfaces across every project.',
+      'exp.j1.l4': 'Practiced version control and collaborative development workflows using Git, GitHub, and GitLab throughout the software development lifecycle.',
+      'edu.eyebrow': 'learning & credentials',
+      'edu.title': 'Education',
+      'edu.c1.role': 'Advanced Full-Stack Web Development Training',
+      'edu.c1.p': 'Intensive project-based training covering Java Spring Boot, PHP/Laravel, React, relational databases, and collaborative development workflows — the same curriculum that produced the four shipped projects in this portfolio.',
+      'edu.c2.role': 'Baccalaureate Qualification',
+      'edu.c2.p': 'Completed secondary education before moving directly into self-taught programming and, later, YouCode\'s intensive training track.',
+      'proj.eyebrow': 'a few builds',
+      'proj.title': 'Selected Work',
+      'proj.p1.tag': 'medical data management',
+      'proj.p1.desc': 'Designed the relational schema and REST API layer for patient record management and appointment scheduling, plus an admin dashboard with real-time visibility into clinical workflows.',
+      'proj.p1.f1': 'Relational schema for patients, staff, and appointments',
+      'proj.p1.f2': 'Role-based access control for clinical vs. admin staff',
+      'proj.p1.f3': 'REST API secured with JWT authentication',
+      'proj.p1.f4': 'Admin dashboard with live workflow visibility',
+      'proj.p2.tag': 'digital agency platform',
+      'proj.p2.desc': 'Co-developed a multi-module platform: public landing page, admin dashboard, secure client portal, and internal team workspace, with modular front-end components for a consistent brand identity.',
+      'proj.p2.f1': 'Public landing page, admin dashboard, client portal, team workspace',
+      'proj.p2.f2': 'Reusable component library for brand-consistent UI',
+      'proj.p2.f3': 'Role-gated access for clients vs. internal staff',
+      'proj.p2.f4': 'Responsive layouts across every module',
+      'proj.p3.tag': 'multi-vendor marketplace',
+      'proj.p3.desc': 'Built RBAC, real-time inventory tracking across concurrent vendor updates, and integrated Stripe payments, with permission-based layers to safeguard vendor and customer data.',
+      'proj.p3.f1': 'Role-based access control for vendors, staff, and customers',
+      'proj.p3.f2': 'Real-time inventory sync across concurrent vendor updates',
+      'proj.p3.f3': 'Stripe checkout with secure payment handling',
+      'proj.p3.f4': 'Vendor onboarding and order management dashboard',
+      'proj.p4.tag': 'vehicle rental platform',
+      'proj.p4.desc': 'Designed a dynamic booking engine with automated rental contract generation, and optimized local SEO structures to improve discoverability and organic search visibility.',
+      'proj.p4.f1': 'Dynamic booking engine with live availability checks',
+      'proj.p4.f2': 'Automated rental contract generation on checkout',
+      'proj.p4.f3': 'Local SEO structuring for organic discoverability',
+      'proj.p4.f4': 'Admin fleet and reservation management',
+      'proj.role': 'Role',
+      'proj.type': 'Type',
+      'proj.tables': 'Tables',
+      'proj.duration': 'Duration',
+      'proj.modules': 'Modules',
+      'proj.components': 'Components',
+      'proj.vendors': 'Vendors',
+      'proj.payments': 'Payments',
+      'proj.seo': 'SEO',
+      'proj.focus': 'Focus',
+      'proj.valFullstack': 'Full-stack',
+      'proj.valSolo': 'Solo project',
+      'proj.valTeam': 'Team project',
+      'proj.valTables15': '15+',
+      'proj.valWeeks6': '6 weeks',
+      'proj.valApps4': '4 apps',
+      'proj.valComponents50': '50+',
+      'proj.valMultitenant': 'Multi-tenant',
+      'proj.valStripe': 'Stripe',
+      'proj.valOrganic35': '+35% organic',
+      'proj.valBookseo': 'Bookings & SEO',
+      'proj.viewGithub': 'View GitHub',
+      'proj.visitWebsite': 'Visit Website',
+      'proj.gh.title': 'More on GitHub',
+      'proj.gh.text': 'Source code, commit history, and a few things still in progress.',
+      'proj.gh.cta': 'View GitHub',
+      'avis.eyebrow': 'kind words',
+      'avis.title': 'Avis',
+      'contact.eyebrow': 'got a project in mind?',
+      'contact.title': 'Let\'s build <span class="who">something</span>',
+      'contact.p': 'Open to freelance work and full-time roles. If you need a developer who can own a feature end to end, reach out.',
+      'contact.cta': 'Get in touch',
+      'contact.resumeBtn': 'Download Resume',
+      'footer.text': '© 2026 Badr Fenni. Built line by line.'
+    },
+    fr: {
+      'nav.about': 'À propos',
+      'nav.stack': 'Stack',
+      'nav.resume': 'Parcours',
+      'nav.work': 'Projets',
+      'nav.avis': 'Avis',
+      'nav.contact': 'Contact',
+      'nav.resumeBtn': ' CV',
+      'hero.subtitle': 'Ingénieur Logiciel Full-Stack',
+      'hero.sticker1': 'ouvert au<br>travail ✦',
+      'hero.sticker2': 'livre vite,<br>sans rien casser',
+      'hero.scroll': 'Défiler',
+      'about.eyebrow': 'enchanté',
+      'about.title': 'Salut, moi c\'est',
+      'about.p1': 'Je suis un <strong>développeur full-stack autodidacte</strong> qui a commencé à coder seul à la maison avant de formaliser ses compétences grâce à la formation intensive de YouCode basée sur des projets. Je développe dans les écosystèmes <strong>Java Spring Boot</strong>, <strong>PHP/Laravel</strong> et <strong>JavaScript/React</strong> — de la conception au déploiement de systèmes full-stack complets : RBAC, traitement sécurisé des paiements, suivi de données en temps réel.',
+      'about.domain1': 'Santé',
+      'about.domain2': 'E-Commerce',
+      'about.domain3': 'Agence Digitale',
+      'about.lang1': '<i class="fa-solid fa-globe"></i> Arabe <em>Langue maternelle</em>',
+      'about.lang2': '<i class="fa-solid fa-globe"></i> Anglais <em>Niveau professionnel</em>',
+      'about.badge': 'Développeur Full-Stack',
+      'about.sticker': 'YouCode<br>promo \'25',
+      'skills.eyebrow': 'avec quoi je travaille',
+      'skills.title': 'Ma Stack',
+      'skills.stat1': 'Projets Livrés',
+      'skills.stat2': 'Années d\'Expérience',
+      'skills.stat3': 'Écosystèmes Full-Stack',
+      'exp.eyebrow': 'où j\'ai travaillé',
+      'exp.title': 'Expérience',
+      'exp.j1.role': 'Développeur Full-Stack',
+      'exp.j1.l1': 'Travail au sein de petites équipes agiles et pluridisciplinaires pour concevoir, architecturer et déployer des logiciels de qualité production sous de vraies contraintes et des cycles de livraison courts.',
+      'exp.j1.l2': 'Transformé des exigences ambiguës en architectures full-stack propres et maintenables, couvrant bases de données relationnelles, API REST et front-ends modernes à base de composants, avec un accent sur l\'intégrité des données et la fiabilité des systèmes.',
+      'exp.j1.l3': 'Appliqué les bonnes pratiques UI/UX et des design systems modernes (Tailwind CSS) pour livrer des interfaces soignées et centrées utilisateur sur chaque projet.',
+      'exp.j1.l4': 'Pratiqué le versioning et les workflows de développement collaboratif avec Git, GitHub et GitLab tout au long du cycle de vie du développement logiciel.',
+      'edu.eyebrow': 'formation & diplômes',
+      'edu.title': 'Formation',
+      'edu.c1.role': 'Formation Avancée en Développement Web Full-Stack',
+      'edu.c1.p': 'Formation intensive basée sur des projets couvrant Java Spring Boot, PHP/Laravel, React, les bases de données relationnelles et les workflows de développement collaboratif — le même programme qui a produit les quatre projets livrés dans ce portfolio.',
+      'edu.c2.role': 'Baccalauréat',
+      'edu.c2.p': 'Secondaire terminé avant de passer directement à la programmation en autodidacte puis au parcours intensif de YouCode.',
+      'proj.eyebrow': 'quelques réalisations',
+      'proj.title': 'Projets Sélectionnés',
+      'proj.p1.tag': 'gestion de données médicales',
+      'proj.p1.desc': 'Conception du schéma relationnel et de la couche API REST pour la gestion des dossiers patients et la planification des rendez-vous, plus un tableau de bord admin offrant une visibilité en temps réel sur les flux cliniques.',
+      'proj.p1.f1': 'Schéma relationnel pour patients, personnel et rendez-vous',
+      'proj.p1.f2': 'Contrôle d\'accès basé sur les rôles (clinique vs. admin)',
+      'proj.p1.f3': 'API REST sécurisée par authentification JWT',
+      'proj.p1.f4': 'Tableau de bord admin avec suivi des flux en temps réel',
+      'proj.p2.tag': 'plateforme d\'agence digitale',
+      'proj.p2.desc': 'Co-développement d\'une plateforme multi-modules : page d\'accueil publique, tableau de bord admin, portail client sécurisé et espace de travail interne, avec des composants front-end modulaires pour une identité de marque cohérente.',
+      'proj.p2.f1': 'Page d\'accueil publique, dashboard admin, portail client, espace équipe',
+      'proj.p2.f2': 'Bibliothèque de composants réutilisables pour une UI cohérente',
+      'proj.p2.f3': 'Accès par rôles pour clients vs. personnel interne',
+      'proj.p2.f4': 'Layouts responsives sur chaque module',
+      'proj.p3.tag': 'marketplace multi-vendeurs',
+      'proj.p3.desc': 'Mise en place du RBAC, suivi de l\'inventaire en temps réel lors de mises à jour simultanées des vendeurs, et intégration des paiements Stripe, avec des couches basées sur les permissions pour protéger les données vendeurs et clients.',
+      'proj.p3.f1': 'Contrôle d\'accès par rôles pour vendeurs, personnel et clients',
+      'proj.p3.f2': 'Synchronisation d\'inventaire en temps réel entre vendeurs concurrents',
+      'proj.p3.f3': 'Checkout Stripe avec traitement sécurisé des paiements',
+      'proj.p3.f4': 'Intégration des vendeurs et dashboard de gestion des commandes',
+      'proj.p4.tag': 'plateforme de location de véhicules',
+      'proj.p4.desc': 'Conception d\'un moteur de réservation dynamique avec génération automatique des contrats de location, et optimisation de la structure SEO locale pour améliorer la visibilité et le trafic organique.',
+      'proj.p4.f1': 'Moteur de réservation dynamique avec disponibilité en direct',
+      'proj.p4.f2': 'Génération automatique du contrat de location au checkout',
+      'proj.p4.f3': 'Structuration SEO locale pour la visibilité organique',
+      'proj.p4.f4': 'Gestion admin de la flotte et des réservations',
+      'proj.role': 'Rôle',
+      'proj.type': 'Type',
+      'proj.tables': 'Tables',
+      'proj.duration': 'Durée',
+      'proj.modules': 'Modules',
+      'proj.components': 'Composants',
+      'proj.vendors': 'Vendeurs',
+      'proj.payments': 'Paiements',
+      'proj.seo': 'SEO',
+      'proj.focus': 'Focus',
+      'proj.valFullstack': 'Full-stack',
+      'proj.valSolo': 'Projet solo',
+      'proj.valTeam': 'Projet d\'équipe',
+      'proj.valTables15': '15+',
+      'proj.valWeeks6': '6 semaines',
+      'proj.valApps4': '4 apps',
+      'proj.valComponents50': '50+',
+      'proj.valMultitenant': 'Multi-tenant',
+      'proj.valStripe': 'Stripe',
+      'proj.valOrganic35': '+35% organique',
+      'proj.valBookseo': 'Réservations & SEO',
+      'proj.viewGithub': 'Voir sur GitHub',
+      'proj.visitWebsite': 'Visiter le site',
+      'proj.gh.title': 'Plus sur GitHub',
+      'proj.gh.text': 'Code source, historique de commits et quelques projets encore en cours.',
+      'proj.gh.cta': 'Voir sur GitHub',
+      'avis.eyebrow': 'quelques mots',
+      'avis.title': 'Avis',
+      'contact.eyebrow': 'un projet en tête ?',
+      'contact.title': 'Construisons <span class="who">quelque chose</span>',
+      'contact.p': 'Ouvert aux missions freelance et aux postes à temps plein. Si vous cherchez un développeur capable de gérer une fonctionnalité de bout en bout, contactez-moi.',
+      'contact.cta': 'Me contacter',
+      'contact.resumeBtn': 'Télécharger le CV',
+      'footer.text': '© 2026 Badr Fenni. Conçu ligne par ligne.'
+    }
+  };
+
+  var langToggle = document.getElementById('langToggle');
+  function applyLang(lang){
+    var dict = i18n[lang];
+    if (!dict) return;
+    document.documentElement.setAttribute('lang', lang === 'fr' ? 'fr' : 'en');
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key]) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key]) el.innerHTML = dict[key];
+    });
+    if (langToggle) langToggle.classList.toggle('is-fr', lang === 'fr');
+  }
+  var savedLang = 'en';
+  try { savedLang = localStorage.getItem('porty-lang') || 'en'; } catch(e){}
+  applyLang(savedLang);
+  if (langToggle) langToggle.addEventListener('click', function(){
+    var next = langToggle.classList.contains('is-fr') ? 'en' : 'fr';
+    try { localStorage.setItem('porty-lang', next); } catch(e){}
+    applyLang(next);
+  });
+
   document.querySelectorAll('.tab-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var tab = btn.getAttribute('data-tab');
@@ -1571,8 +1817,5 @@
     statNums.forEach(function(el){ statIO.observe(el); });
   }
 </script>
-
-
-/* ----- */
 </body>
 </html>
